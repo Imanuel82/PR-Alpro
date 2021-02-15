@@ -1,0 +1,35 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+print( )
+
+'''
+Ando adalah seorang siswa SMP yang pintar, namun dia mengalami sedikit kesulitan dalam menghitung luas, keliling,
+dan juga volume dari beberapa bangun ruang. Pada suatu hari, Ando diberi tugas untuk mencari sebuah benda sederhana
+berbentuk tabung dan kemudian ia diminta untuk mencari luas permukaan, keliling, dan juga volume dari benda tersebut.
+Buatlah sebuah program yang bisa digunakan Ando untuk membantu menjawab semua persoalan tersebut !
+
+Input : 1. Ando harus mengukur panjang jari-jari dari alas tabung tersebut dengan satuan cm
+        2. Ando harus mengukur tinggi dari tabung tersebut dalam satuan cm
+
+Proses : 1. Rumus penghitung volume tabung (V = 3,14 * r^2 * t)
+         2. Rumus penghitung luas permukaan tabung (L = 2 * 3,14 * r**2 + (2 *3,14 * r * t))
+         3. Rumus penghitung keliling alas tabung (K = 2 * 3,14 * r)
+         
+
+Output : 1. Volume dari tabung yang diukur (cm^3)
+         2. Luas permukaan dari tabung yang diukur (cm^2)
+         3. Keliling dari alas tabung yang diukur (cm)
+         
+'''
+
+print('*'*12,'PROGRAM PENGHITUNG VOLUME, LUAS PERMUKAAN, DAN KELILING ALAS TABUNG','*'*12)
+print( )
+jari = int(input('Masukkan jari-jari tabung (cm): '))
+tinggi = int(input('Masukkan tinggi tabung (cm): '))
+print('-'*20)
+print( )
+
+volume = 3.14*jari**2*tinggi
+luas = 2*3.14*jari**2+(2*3.14*jari*tinggi)
+keliling = 2*3.14*jari
+
+print('Dari data jari-jari dan tinggi yang telah anda masukkan, maka diperoleh hasil demikian: \nVolume (cm^3): %.1f \nLuas permukaan (cm^2): %.1f \nKeliling (cm): %.1f' %(volume,luas,keliling))
