@@ -1,49 +1,74 @@
 print('Imanuel Vicky Sanjaya (71200563)')
 print( )
 
-#Membuat program presensi siswa sekolah dasar Tadika Mesra
-
+# Membuat program untuk pendaftaran siswa SMA
 '''
-Pak Danu adalah seorang kepala Sekolah Dasar Tadika Mesra.
-Ia ingin memberlakukan teknologi untuk mempermudah dalam presensi siswanya.
-Untuk itu bantulah Pak Danu dengan membuat program untuk presensi Sekolah Dasar Tadika Mesra.
+SMA Negeri 4 sedang membuka pendaftaran untuk siswa-siswa baru yang ingin bersekolah di sana.
+Pendaftaran tersebut dilakukan dengan kualifikasi usia.
+Pendaftaran ini juga berlaku untuk siswa yang berpindah dari sekolah lain, 
+sehingga usia siswa tersebut harus disesuaikan dengan kelasnya di SMA Negeri 4.
+Buatlah sebuah program yang dapat digunakan untuk pendaftaran siswa baru SMA Negeri 4!
 
-input :
-1. Nama siswa
-2. Nomor absen siswa
-3. Kelas siswa
-4. Password program
+input:
+1. nama siswa
+2. usia siswa
+3. jurusan yang ingin diambil
 
-proses :
-1. Nama siswa akan di jadikan patokan apakah nama yang dimasukkan sesuai dengan daftar nama siswa yang ada
-2. Nomor absen dan kelas siswa hanya digunakan sebagai informasi tambahan
-3. Password digunakan untuk memastikan apakah siswa tersebut merupakan siswa dari sekolah tersebut atau bukan
+proses:
+1. nama dan usia siswa akan digunakan sebagai keperluan data diri yang harus disiapkan oleh siswa yang ingin mendaftar.
+2. usia siswa juga akan dijadikan sebagai patokan kualifikasi untuk siswa tersebut akan masuk di kelas yang mana, dan apakah usia tersebut memenuhi kualifikasi.
+3. jurusan yang ingin diambil siswa juga akan menentukan kelas yang diambil oleh siswa pendaftar.
 
 output:
-1. jika semua informasi yang diberikan benar, maka siswa tersebut diijinkan untuk masuk ke dalam kelas
-2. jika ada informasi yang salah, maka siswa tersebut akan diberi peringatan.
+1. siswa tersebut akan mendapat pemberitahuan apakah pendaftaran yang dilakukannya berhasil atau tidak
+2. siswa juga akan diberi tahu kelas manakah yang akan dia masuki.
 
 '''
 
-nama = ['dana','dodi','indah','jordi','doni']
-password = 'indibiningging'
+print('Selamat datang di laman pendaftaran SMA NEGERI 4!!!')
+print('Silakan isi data diri anda.')
 
-print('~'*10,'Selamat datang di SD Tadika Mesra','~'*10)
-print('Silakan lakukan presensi dahulu sebelum masuk ke dalam kelas')
+ipa = 'IPA'
+ips = 'IPS'
+bahasa = 'BAHASA'
 
 try:
-    nama_1 = str(input('Nama : '))
-    nomor_absen = int(input('Nomor absen : '))
-    kelas = int(input('Kelas : '))
-    password_1 = str(input('Password : '))
-    nama_2 = nama_1.lower()
-
-    if password_1 == password and nama_2 in nama:
-        print('Anda berhasil melakukan presensi.')
-        print('Silahkan masuk ke dalam kelas.')
-    elif password_1!=password:
-        print('Password anda salah!!!')
-    elif nama_1 not in nama:
-        print('Nama tidak ada di daftar siswa!!!')
+    nama = str(input('NAMA : '))
+    usia = int(input('USIA : '))
+    print('Baik,',nama,'Silakan pilih jurusan yang ingin anda ambil : ')
+    print('1.',ipa)
+    print('2.',ips)
+    print('3.',bahasa)
+    pilihan = str(input('Ketikkan jurusan pilihan anda: '))
+    pilihan_1 = pilihan.upper()
+    if usia>=14 and usia<=15:
+        if pilihan_1 == 'IPA':
+            print('Selamat anda telah berhasil mendaftar sebagai siswa kelas 10 jurusan',ipa,'di SMA NEGERI 4.')
+        elif pilihan_1 == 'IPS':
+            print('Selamat anda telah berhasil mendaftar sebagai siswa kelas 10 jurusan',ips,'di SMA NEGERI 4.')
+        elif pilihan_1 == 'BAHASA':
+            print('Selamat anda telah berhasil mendaftar sebagai siswa kelas 10 jurusan',bahasa,'di SMA NEGERI 4.')
+        else:
+            print('Pilihan jurusan yang anda masukkan harus berupa tulisan (misal: IPA)')
+    elif usia>=16 and usia<=17:
+        if pilihan_1 == 'IPA':
+            print('Selamat anda telah berhasil mendaftar sebagai siswa kelas 11 jurusan',ipa,'di SMA NEGERI 4.')
+        elif pilihan_1 == 'IPS':
+            print('Selamat anda telah berhasil mendaftar sebagai siswa kelas 11 jurusan',ips,'di SMA NEGERI 4.')
+        elif pilihan_1 == 'BAHASA':
+            print('Selamat anda telah berhasil mendaftar sebagai siswa kelas 11 jurusan',bahasa,'di SMA NEGERI 4.')
+        else:
+            print('Pilihan jurusan yang anda masukkan harus berupa tulisan (misal: IPA)')
+    elif usia>=18 and usia<=19:
+        if pilihan_1 == 'IPA':
+            print('Selamat anda telah berhasil mendaftar sebagai siswa kelas 12 jurusan',ipa,'di SMA NEGERI 4.')
+        elif pilihan_1 == 'IPS':
+            print('Selamat anda telah berhasil mendaftar sebagai siswa kelas 12 jurusan',ips,'di SMA NEGERI 4.')
+        elif pilihan_1 == 'BAHASA':
+            print('Selamat anda telah berhasil mendaftar sebagai siswa kelas 12 jurusan',bahasa,'di SMA NEGERI 4.')
+        else:
+            print('Pilihan jurusan yang anda masukkan harus berupa tulisan (misal: IPA)')
+    else:
+        print('Usia anda tidak masuk dalam kualifikasi pendaftaran siswa baru SMA NEGERI 4.')
 except:
-    print('Data presensi yang anda berikan tidak sesuai, mohon ulangi lagi.')
+    print('Masukan yang anda berikan tidak sesuai, silakan refresh kembali laman ini untuk mengulang pendaftaran.')
