@@ -1,0 +1,84 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+
+#Program pembelian bensin
+'''
+Sebuah SPBU di Indonesia ingin memberlakukan sistem pelayanan komputer.
+Hal ini juga digunakan supaya para pelanggan dapat melakukan pelayanan pribadi tanpa bantuan dari pihak SPBU.
+Bantulah SPBU Indonesia dalam membuat program tersebut!
+
+input:
+1. Jenis bensin
+2. Metode pembelian
+3. Jumlah pembelian
+
+proses:
+1. inputan untuk jenis bensin akan digunakan sebagai penentu harga yang harus dibayarkan oleh pelanggan
+2. metode pembelian akan digunakan sebagai patokan, apakah pelanggan ingin membeli dalam jumlah liter atau dalam jumlah harga tertentu
+3. jumlah pembelian akan diproses dengan metode perhitungan untuk mengetahui jumlah yang harus dibayarkan, ataupun jumlah liter yang didapatkan
+
+
+output:
+1. jika proses yang di lakukan sesuai maka pembeli akan diberitahu mengenai jumlah liter ataupun jumlah uang yang harus dibayarkan.
+2. jika inputan yang diberikan salah, maka pelanggan akan diberitahukan bahwa metode yang mereka lakukan salah
+3. jika inputan yang diberikan benar, maka pembeli akan diinformasikan untuk melakukan pembayaran terlebih dahulu supaya bisa melakukan pengisian bahan bakar.
+
+'''
+
+premium = 6000
+pertalite = 7500
+pertamax = 9000
+
+try:
+    print('*'*10,'Selamat datang di SPBU Indonesia','*'*10)
+    print('Silakan pilih jenis bahan bakar yang anda inginkan:')
+    print('1. Premium = 6000/liter')
+    print('2. Pertalite = 7500/liter')
+    print('3. Pertamax = 9000/liter')
+    jenis = int(input('Masukkan nomor pilihan anda: '))
+    print( )
+    print('Pilihlah metode pembelian:')
+    print('1. Dalam jumlah liter')
+    print('2. Dalam jumlah harga')
+    pembelian = int(input('Masukkan nomor pilihan anda: '))
+
+    if pembelian ==1:
+        liter = float(input('Berapa liter yang ingin anda beli? '))
+    elif pembelian ==2:
+        harga = int(input('Berapa yang ingin anda beli? '))
+    else:
+        print('Masukan yang anda berikan salah, silakan ulangi.')
+
+    def jenis_1(jenis):
+        if jenis ==1:
+            if pembelian ==1:
+                a = premium*liter
+                return a
+            elif pembelian ==2:
+                b = harga/premium
+                return b
+        elif jenis ==2:
+            if pembelian ==1:
+                a = pertalite*liter
+                return a
+            elif pembelian ==2:
+                b = harga/pertalite
+                return b
+        elif jenis ==3:
+            if pembelian ==1:
+                a = pertamax*liter
+                return a
+            elif pembelian ==2:
+                b = harga/pertamax
+                return b
+        else:
+            print('Pilihan yang anda masukkan tidak ada, silakan ulangi.')
+
+    if pembelian == 1:
+        print('Jumlah yang harus anda bayarkan adalah: Rp %.1d'%(jenis_1(jenis)))
+        print('Silakan lakukan pembayaran terlebih dahulu supaya pengisian dapat dilakukan.')
+    elif pembelian == 2:
+        print('Bahan bakar yang anda dapatkan adalah sejumlah %.1f'%(jenis_1(jenis)),'liter.')
+        print('Silakan lakukan pembayaran terlebih dahulu supaya pengisian dapat dilakukan.')
+
+except:
+    print('Masukan anda salah.')
