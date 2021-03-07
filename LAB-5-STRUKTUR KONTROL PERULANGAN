@@ -1,0 +1,75 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+
+'''
+referensi : sistemkomputerblog.blogspot.com
+
+Bapak Toni ingin membuka sebuah bank baru, karena itu dia membutuhkan sebuah program untuk mesin ATM yang ia punya.
+Bantulah bapak Toni dengan membuatkan program 
+untuk mesin ATM yang dapat ia gunakan di dalam mesin ATM miliknya!
+
+input:
+1. Pin ATM
+2. Masukan menu pelayanan
+    2.1. jumlah uang yang ingin di setor
+    2.2. jumlah uang yang ingin di tarik
+    2.3. nomor rekening yang ingin di transfer
+        2.3.1. jumlah uang yang ingin di transfer
+
+proses:
+1. pin ATM yang dimasukkan akan dicocokan dengan pin ATM yang sudah ditetapkan
+2. pilihan pelayanan yang dimasukkan akan di cocokan dengan setiap kemungkinan yang ada didalam menu pelayanan
+3. jumlah uang yang ingin disetor akan dijumlahkan dengan jumlah saldo yang ada.
+4. jumlah uang yang ingin ditarik akan dikurangkan dengan jumlah saldo yang ada.
+5. jumlah uang yang ingin ditransfer akan dikurangkan dengan jumlah saldo yang ada.
+
+output:
+1. jika pin ATM yang dimasukkan benar, maka akan ditampilkan menu-menu pelayanan yang ada.
+   Namun jika pin ATM salah, maka akan ditampilkan keterangan bahwa pin yang dimasukkan salah.
+2. jika pilihan yang dipilih adalah setor, maka akan ditampilkan jumlah saldo setelah melakukan setor.
+3. jika pilihan yang dipilih adalah tarik, maka akan ditampilkan jumlah saldo setelah melakukan tarik.
+4. jika pilihan yang dipilih adalah transfer, maka akan ditampilkan apakah transaksi berhasil atau tidak dan jumlah saldo setelah melakukan transfer.
+5. jika saldo sudah habis, maka akan ditampilkan keterangan bahwa saldo pengguna sudah tidak mencukupi untuk melakukan transaksi.
+6. pilihan menu pelayanan akan terus ditampilkan selama transaksi dapat berjalan.
+7. jika pilihan yang dipilih adalah exit, maka yang akan muncul adalah ucapan terima kasih kemudian selesai.
+'''
+
+print('*'*10,'Selamat datang di Bank TONI','*'*10)
+pin = 123456
+pin_1 = int(input('Silakan masukkan pin anda: '))
+saldo = 1_000_000
+
+if pin_1==pin:
+    while saldo>=0:
+        print('Silakan pilih menu pelayanan')
+        print('1. Setor tunai')
+        print('2. Tarik tunai')
+        print('3. Transfer')
+        print('4. Exit')
+        pilih = int(input('Masukkan pilihan anda: '))
+        print( )
+        if pilih == 1:
+            setor = int(input('Masukkan jumlah uang yang ingin anda setor: Rp '))
+            print('Saldo anda sekarang adalah: Rp',saldo+setor)
+            saldo+=setor
+            print( )
+        elif pilih == 2:
+            tarik = int(input('Masukkan jumlah uang yang ingin anda tarik: Rp '))
+            print('Saldo anda sekarang adalah: Rp',saldo-tarik)
+            saldo-=tarik
+            print( )
+        elif pilih == 3:
+            no_rek = int(input('Masukkan nomor rekening tujuan anda: '))
+            transfer = int(input('Masukkan jumlah uang yang ingin anda transfer: Rp '))
+            print('Uang anda berhasil di transfer ke nomor rekening',no_rek,'dengan jumlah uang Rp',transfer)
+            print('Saldo anda sekarang adalah',saldo-transfer)
+            saldo-=transfer
+            print( )
+        elif pilih == 4:
+            print('Terima kasih telah bertransaksi :)')
+            break
+        else:
+            print('Pilihan anda tidak ada di dalam menu transaksi. Silakan ulangi.')
+    else:
+        print('Saldo anda tidak mencukupi untuk melakukan transaksi.')
+else:
+    print('Pin yang anda masukkan salah.')
