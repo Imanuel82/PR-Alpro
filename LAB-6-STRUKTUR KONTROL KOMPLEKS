@@ -1,0 +1,85 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+
+'''
+referensi: sistemkomputerblog.blogspot.com
+
+Bapak Tohing ingin membuka sebuah usaha martabak.
+Ia ingin membuat usahanya tersebut lebih banyak diminati orang, dengan cara menggunakan program yang dapat mempermudah pelanggan dalam melakukkan pemesanan.
+Buatkanlah untuk Bapak Tohing sebuah program yang dapat membantu permasalahannya tersebut.
+
+input:
+1. Jenis martabak yang diinginkan
+2. Jumlah martabak yang ingin dibeli
+3. Metode pembayaran
+
+proses:
+1. Inputan untuk jenis martabak yang diberikan akan di cocokan dengan setiap kemungkinan yang ada di dalam menu
+2. Jumlah martabak yang ingin dibeli akan dihitungkan dengan harga martabak sesuai pilihan jenisnya
+3. Metode pembayaran yang dipilih akan dicocokan dengan setiap jenis pembayaran yang bisa dilakukan di toko martabak tersebut
+
+output:
+1. Akan di tampilkan pesanan yang telah dipilih
+2. Jika pembeli memasukkan angka 4 pada pilihan, maka akan muncul jumlah yang harus dibayarkan oleh pembeli
+3. Setelah metode pembayaran dipilih, pembeli akan diberi petunjuk untuk mengambil pesanannya
+4. Jika jumlah pemesanan kurang atau sama dengan 0, maka program akan langsung berhenti
+'''
+
+
+print('#'*10,'Selamat datang di Martabak TOHING','#'*10)
+
+coklat = 20_000
+keju = 25_000
+kacang = 18_000
+
+awal = 0
+
+n = 0
+
+while awal == 0:
+    print('Silakan pilih menu martabak yang anda inginkan:')
+    print('1. Martabak coklat = Rp',coklat)
+    print('2. Martabak keju = Rp',keju)
+    print('3. Martabak kacang = Rp',kacang)
+    print('4. Exit')
+    pilihan = int(input('Masukkan pilihan anda: '))
+    if pilihan == 1:
+        jumlah = int(input('Masukkan jumlah martabak yang ingin anda beli: '))
+        print('Martabak pilihan anda adalah martabak coklat sebanyak',jumlah)
+        jumlah*coklat
+        n+=jumlah*coklat
+        if n<=0:
+            break
+    elif pilihan == 2:
+        jumlah = int(input('Masukkan jumlah martabak yang ingin anda beli: '))
+        print('Martabak pilihan anda adalah martabak keju sebanyak',jumlah)
+        jumlah*keju
+        n+=jumlah*keju
+        if n<=0:
+            break
+    elif pilihan == 3:
+        jumlah = int(input('Masukkan jumlah martabak yang ingin anda beli: '))
+        print('Martabak pilihan anda adalah martabak kacang sebanyak',jumlah)
+        jumlah*kacang
+        n+=jumlah*kacang
+        if n<=0:
+            break
+    elif pilihan == 4:
+        if n<=0:
+            break
+        print('Jumlah uang yang harus anda bayarkan adalah sebanyak: Rp',n)
+        print('Pilihlah metode pembayaran: ')
+        print('1. Kartu Flass')
+        print('2. Cash')
+        pembayaran = int(input('Masukkan metode pembayaran: '))
+        if pembayaran == 1:
+            print('Silakan tempelkan kartu anda.')
+            print('Transaksi berhasil. Silakan lakukan pengambilan pesanan di kasir.')
+            print('Terima kasih telah berkunjung.')
+        elif pembayaran == 2:
+            print('Silakan lakukan pembayaran cash dan pengambilan pesanan di kasir.')
+            print('Terima kasih telah berkunjung.')
+        else:
+            print('Metode pembayaran yang anda masukkan tidak ada di dalam pilihan.')
+        break
+    else:
+        print('Pilihan anda tidak ada di dalam menu. Mohon pilih dengan benar.')
