@@ -1,0 +1,64 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+
+'''
+Budi adalah seorang siswa.
+Suatu hari ia disuruh oleh gurunya untuk mengganti nama-nama yang terdapat pada suatu kalimat,
+menjadi nama-nama yang diawali dengan huruf kapital, sekaligus menuliskan kembali kalimat tersebut.
+Karena itu, buatkanlah Budi sebuah program yang bisa membantunya dalam mengerjakan tugasnya!
+
+
+kalimat:
+Jordy, dani, juki, otong, dan mamat adalah anak-anak dari bapak toto dan ibu jamilah.
+
+
+input:
+1. Nama siswa
+2. Nomor absen
+3. Kalimat
+4. Kata yang ingin di kapitalkan
+5. Pilihan ingin melanjutkan atau tidak
+
+proses:
+1. Kalimat yang dimasukkan akan dicocokan dengan kata yang dimasukkan.
+   Jika kata yang dimasukkan ada di dalam kalimat, maka akan diubah huruf awal pada kata tersebut menjadi kapital.
+   Jika kata yang dimasukkan tidak ada di dalam kalimat, maka kalimat tersebut akan ditampilkan kembali, tanpa ada perubahan.
+2. Inputan untuk pilihan ingin melanjutkan atau tidak ini digunakan untuk menentukan apakah ada kata-kata lain yang ingin diubah.
+   Jika tidak, maka perulangan akan berhenti.
+   Jika ya, maka kalimat yang telah diubah tidak akan hilang, namun perubahannya akan ditambahkan dengan perubahan pada perulangan selanjutnya.
+
+output:
+1. Nama yang telah dimasukkan akan di tampilkan pada hasil output.
+2. Nomor absen juga akan ditampilkan pada hasil output.
+3. Jika ingin melanjutkan, maka akan ditampilkan kembali untuk inputan kata, dan hasil lanjutan dari kalimat yang telah diubah sebelumnya.
+4. Kalimat yang telah diubah, akan ditampilkan lagi namun dengan menampilkan perubahan kata yang dimasukkan.
+'''
+
+nama = str(input('Masukkan nama anda: '))
+absen = int(input('Masukkan nomor absen: '))
+kalimat = str(input('Tuliskan kalimat anda: '))
+
+n=0
+
+while n==0:
+    kata = str(input('Masukkan 1 kata yang ingin dikapitalkan: '))
+    print( )
+
+    j=kata.split(' ')
+    k=kalimat.split(' ')
+    kapital = kata.capitalize()
+
+    for j in k:
+        kalimat = kalimat.replace(kata,kapital)
+
+    print('Nama         :',nama)
+    print('Nomor absen  :',absen)
+    print(kalimat)
+    print( )
+    selanjutnya = str(input('Apakah anda ingin melanjutkan? (1=ya/0=tidak): '))
+    if selanjutnya == '1' or selanjutnya == 'ya':
+        continue
+    elif selanjutnya == '0' or selanjutnya == 'tidak':
+        break
+    else:
+        print('Pilihan anda salah')
+        break
