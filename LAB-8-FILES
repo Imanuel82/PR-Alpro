@@ -1,0 +1,74 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+
+'''
+referensi : code.tutsplus.com
+Suatu hari Sumanto ingin membuka sebuah usaha baru.
+Dalam usaha miliknya, ia ingin menjual berbagai jenis barang.
+Untuk itu Sumanto membutuhkan program yang dapat ia gunakan untuk mengecek dan menambah barang di dalam tokonya.
+Bantulah Sumanto dengan membuat program yang dapat membantunya melakukan semua itu.
+
+input:
+1. Menu pilihan
+2. Nama barang baru
+3. Harga barang baru
+4. Nama barang (yang sudah ada)
+
+proses:
+1. Menu pilihan akan digunakan untuk menentukan output ataupun input yang ditampilkan selanjutnya
+2. Jika pilihan yang dipilih adalah masukkan barang baru,
+    maka user selanjutnya akan diberikan inputan untuk nama barang baru dan harga barang baru
+3. Jika pilihan yang dipilih adalah mencari barang yang sudah ada,
+    maka user selanjutnya akan diberikan inputan untuk nama barang (yang sudah ada)
+
+output:
+1. Jika pilihan yang dipilih user adalah Exit, maka akan muncul tulisan "Terima kasih." dan perulangan akan berhenti.
+2. Jika pilihan yang dipilih user adalah Masukkan barang baru,
+    pengguna akan diminta untuk memasukkan nama barang baru dan harganya.
+3. Jika pilihan yang dipilih user adalah Mencari barang yang sudah ada,
+    maka pengguna akan diminta untuk memasukkan nama barang yang ingin dicari.
+    Jika barang yang dicari ada, maka akan ditampilkan nama barang tersebut dan juga harganya.
+    Jika barang yang dicari tidak ada, maka akan ditampilkan keterangan "Barang yang anda cari tidak ada".
+4. Jika menu yang dipilih user tidak ada didalam pilihan menu, maka akan muncul keterangan "Pilihan tidak ada di dalam menu."
+5. Perulangan akan terus berlangsung hingga terjadi error atau user memilih exit.
+
+'''
+
+print('~'*10,'SELAMAT DATANG DI ASE HADWER','~'*10)
+print('Pilih Menu')
+print('1. Masukkan barang baru')
+print('2. Mencari barang')
+print('3. Exit')
+x=0
+
+try:
+    while x==0:
+        menu = int(input('Masukkan pilihan anda: '))
+        print(' ')
+        if menu==1:
+            handle = open('LAB-8-FILES.txt','a')
+            print('~'*5,'MENU TAMBAH BARANG','~'*5)
+            barang_baru = str(input('Masukkan nama barang baru: '))
+            harga_baru = int(input('Masukkan harga barang baru: '))
+            harga = str(harga_baru)
+            handle.write(barang_baru+', '+harga+'\n')
+            handle.close()
+        elif menu==2:
+            print('~'*5,'MENU MENCARI BARANG','~'*5)
+            handle = open('LAB-8-FILES.txt','r')
+            cari = str(input('Masukkan nama barang: '))
+
+            for i in handle:
+                if i.startswith(cari):
+                    k=i.split(',')
+            if cari in k:
+                print('Nama barang:     ',k[0])
+                print('Harga barang:    ',k[1])
+            else:
+                print('Barang yang anda cari tidak ada.')
+        elif menu==3:
+            print('Terima kasih.')
+            break
+        else:
+            print('Pilihan tidak ada dalam menu.')
+except:
+    print('Tidak ada pilihan atau barang dengan nama tersebut.')
