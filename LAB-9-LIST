@@ -1,0 +1,84 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+
+'''
+referensi: sourcecodester.com
+
+Suatu hari Indra ingin mengadakan sebuah seminar.
+Karena itu ia membutuhkan sebuah program yang dapat ia gunakan untuk membantunya dalam melakukan pendaftaran peserta seminar.
+Bantulah Indra dengan membuatkan program seperti yang ia harapkan!
+
+input:
+1. Pilihan menu
+2. Nama
+3. Instansi
+
+proses:
+1. Inputan pilihan menu akan digunakan untuk menentukan langkah yang harus di lakukan oleh user selanjutnya
+2. Jika, menu yang dipilih adalah "Masukkan data pendaftar" inputan untuk nama akan dimasukkan ke dalam list
+3. Jika, menu yang dipilih adalah "Masukkan data pendaftar" inputan untuk instansi akan dimasukkan ke dalam list
+4. Jika, menu yang dipilih adalah "Hapus data pendaftar" inputan untuk nama akan dihapus dari dalam list
+5. Jika, menu yang dipilih adalah "Hapus data pendaftar" inputan untuk instansi akan dihapus dari dalam list
+
+output:
+1. Jika pilihan yang dipilih adalah "Masukkan data pendaftar", maka akan disajikan inputan untuk nama dan instansi pendaftar.
+2. Jika pilihan yang dipilih adalah "Tampilkan pilihan menu kembali", maka akan disajikan kembali menu-menu yang dapat dimasukkan oleh pengguna di dalam inputan menu.
+3. Jika pilihan yang dipilih adalah "Hapus data pendaftar", maka akan disajikan inputan untuk nama dan instansi dari orang yang ingin dihapus datanya.
+4. Jika pilihan yang dipilih adalah "Cetak sertifikat untuk semua pendaftar", maka setiap nama dan instansi yang telah dimasukkan akan ditampilkan dalam bentuk sertifikat.
+5. Jika pilihan yang dipilih adalah "Tutup pendaftaran dan hapus semua data pendaftar", maka perulangan akan berhenti dan semua data yang telah dimasukkan akan hilang.
+'''
+
+print('='*10,'SELAMAT DATANG DI SEMINAR SELINTANG SELINTUNG','='*10)
+
+print('Pilih menu:')
+print('1. Masukkan data pendaftar')
+print('2. Tampilkan pilihan menu kembali')
+print('3. Hapus data pendaftar')
+print('4. Cetak sertifikat untuk semua data pendaftar')
+print('5. Tutup pendaftaran dan hapus semua data pendaftar')
+
+try:
+    n=0
+    nama_1 = []
+    instansi_1 = []
+    while n==0:
+        pilih = int(input('Masukkan pilihan menu anda: '))
+        print( )
+        if pilih == 1:
+            print('~'*5,'Menu Pendaftaran','~'*5)
+            nama = str(input('Masukkan nama: '))
+            instansi = str(input('Masukkan nama instansi: '))
+            nama_1.append(nama)
+            instansi_1.append(instansi)
+            print( )
+        elif pilih == 2:
+            print('Pilih menu:')
+            print('1. Masukkan data pendaftar')
+            print('2. Tampilkan pilihan menu kembali')
+            print('3. Hapus data pendaftar')
+            print('4. Cetak sertifikat untuk semua data pendaftar')
+            print('5. Tutup pendaftaran dan hapus semua data pendaftar')
+            print( )
+        elif pilih == 3:
+            print('~'*5,'Menu Hapus Data Pendaftar','~'*5)
+            name = str(input('Masukkan nama: '))
+            ins = str(input('Masukkan nama instansi: '))
+            nama_1.remove(name)
+            instansi_1.remove(ins)
+            print( )
+        elif pilih == 4:
+            count = 0
+            for k in range(len(nama_1)):
+                print('||| SERTIFIKAT SEMINAR SELINTANG SELINTUNG |||')
+                print('Atas nama:')
+                print(nama_1[count])
+                print('Dari instansi:')
+                print(instansi_1[count])
+                print( )
+                count+=1
+        elif pilih == 5:
+            print('Pendaftaran berhasil di tutup dan semua data peserta berhasil di hapus.')
+            break
+        else:
+            print('Pilihan menu tidak tersedia.')
+except:
+    print('Terjadi kesalahan.')
