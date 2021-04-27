@@ -1,0 +1,92 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+
+'''
+referensi: www.pythonindo.com
+
+Aang memiliki perusahaan yang baru saja ia bangun.
+Dia memiliki beberapa pegawai baru yang belum ia catat gajinya.
+Karena itu bantulah Aang dengan membuatkan program yang dapat mempermudahnya dalam pencatatan data gaji pegawai !
+
+Input:
+1. Pilihan menu
+2. Jumlah pegawai
+3. Nama pegawai
+4. Gaji pegawai
+
+Proses:
+1. Jika menu yang dipilih adalah 1, maka akan disediakan inputan untuk memasukkan jumlah pegawai yang ingin dicatat, 
+    inputan untuk nama dan juga gaji pegawai. Kemudian datanya akan dimasukkan kedalam dictionary.
+2. Jika menu yang dipilih adalah 2, maka akan disediakan inputan untuk nama pegawai yang ingin diganti jumlah gajinya,
+    kemudian akan dicek apakah nama tersebut ada di dalam dictionary. Kemudian akan ditampilkan inputan untuk gaji barunya.
+3. Jika menu yang dipilih adalah 3, maka program akan mengecek untuk value terbesar dan terkecil yang ada di dalam dictionary.
+4. Jika menu yang dipilih adalah 4, maka akan disediakan inputan untuk nama pegawai,
+    kemudian program akan mengecek apakah nama yang dicari ada atau tidak,
+    jika ada nama tersebut jumlah gajinya akan diperbaharui sesuai inputan jumlah gaji yang telah diberikan,
+5. Jika menu yang dipilih adalah 6, maka program akan berhenti berjalan.
+
+Output:
+1. Jika menu yang dipilih adalah 1, maka akan ditampilkan inputan untuk nama dan gaji pegawai sebanyak jumlah yang diinginkan.
+2. Jika menu yang dipilih adalah 2, maka akan ditampilkan inputan untuk nama pegawai yang ingin diganti gajinya,
+    jika nama pegawai tersebut ada di dalam dictionary, maka akan ditampilkan inputan untuk jumlah gaji yang baru,
+    jika nama tersebut tidak ada di dalam dictionary, maka akan ditampilkan keterangan bahwa nama tersebut tidak ada.
+3. Jika menu yang dipilih adalah 3, maka akan ditampilkan nominal gaji tertinggi,
+    dan akan ditampilkan juga nominal gaji terendah.
+4. Jika menu yang dipilih adalah 4, maka akan ditampilkan inputan untuk nama pegawai yang ingin dilihat jumlah gajinya,
+    kemudian jika nama tersebut ada di dalam dictionary, maka akan ditampilkan jumlah gajinya,
+    jika nama tersebut tidak ada di dalam dictionary, maka akan ditampilkan keterangan bahwa nama tersebut tidak ada.
+5. Jika menu yang dipilih adalah 5, maka akan ditampilkan semua data yang ada di dalam dictionary.
+6. Jika menu yang dipilih adalah 6, maka akan ditampilkan tulisan "Terima kasih" dan program akan berhenti berjalan.
+7. Jika terjadi kesalahan input, maka akan ditampilkan keterangan bahwa terjadi suatu kesalahan.
+'''
+
+print('Menu:')
+print('1. Mencatat gaji pegawai')
+print('2. Mengganti gaji pegawai')
+print('3. Melihat gaji tertinggi dan terendah')
+print('4. Melihat gaji pegawai tertentu')
+print('5. Melihat gaji semua pegawai')
+print('6. Exit')
+
+n=0
+k={}
+try:
+    while n==0:
+        menu = int(input('Masukkan pilihan menu: '))
+        if menu==1:
+            jumlah = int(input('Jumlah pegawai: '))
+            for i in range(jumlah):
+                print('='*10)
+                nama=str(input('Nama: '))
+                gaji=int(input('Gaji: '))
+                k[nama] = gaji
+            print('='*10)
+            print()
+        elif menu==2:
+            nama_1 = str(input('Masukkan nama: '))
+            if nama_1 in k:
+                gaji_1 = int(input('Gaji baru: '))
+                k[nama_1] = gaji_1
+            else:
+                print('Tidak ada pegawai dengan nama tersebut.')
+            print()
+        elif menu==3:
+            print('Gaji tertinggi:',max(k.values()))
+            print('Gaji terendah:',min(k.values()))
+            print()
+        elif menu==4:
+            nama_2 = str(input('Masukkan nama: '))
+            if nama_2 in k:
+                print('Gaji dari',nama_2,'adalah',k[nama_2])
+            else:
+                print('Tidak ada pegawai dengan nama tersebut.')
+        elif menu==5:
+            print('Berikut gaji dari semua pegawai:')
+            print(k)
+            print()
+        elif menu==6:
+            print('Terima kasih.')
+            break
+        else:
+            print('Pilihan salah.')
+except:
+    print('Terjadi kesalahan.')
