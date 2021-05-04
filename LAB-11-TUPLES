@@ -1,0 +1,59 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+
+'''
+referensi: internet
+
+Suatu hari Pemerintah kota X memerlukan data ktp beberapa warga untuk keperluan pendataan.
+Untuk itu dibutuhkan sebuah program yang dapat melakukan pendataan tersebut.
+Sebagai warga negara yang baik, bantulah Pemerintah kota X dengan membuatkan program yang sesuai dengan harapan.
+
+Input:
+1. nama
+2. nomor KTP
+3. pilihan apakah data sudah benar atau tidak
+
+proses:
+1. user akan ditanya apakah data yang ada sudah benar atau belum
+2. jika masih ada yang salah, maka user akan diminta untuk memberikan data yang tepat 
+    supaya data sebelumnya dapat diganti dengan data yang benar
+
+output:
+1. pada bagian awal akan ditampilkan data-data yang sebelumnya sudah ada
+2. akan ditampilkan inputan, apakah data tersebut sudah benar atau belum
+3. jika data sudah benar, maka program akan berhenti berjalan dan akan muncul ucapan "Terima kasih."
+4. jika data masih salah, user akan diminta untuk memasukkan data yang benar supaya data yang sebelumnya dapat di ganti
+'''
+
+inputan = ('Dinda',33792834,'Yuni',33701372,'Toni',33718219,'Juju',33781297)
+
+try:
+    for i in range(0,len(inputan),2):
+        print('Nomor KTP dari',inputan[i],'adalah',inputan[i+1])
+    print()
+    p=0
+
+    while p==0:
+        print('Apakah data sudah benar?')
+        jawab = str(input('Ya/Tidak: '))
+        print()
+        if jawab=='Ya':
+            print('Terima kasih.')
+            break
+        elif jawab=='Tidak':
+            daftar = {}
+            for i in range(0,len(inputan),2):
+                daftar[inputan[i]]=inputan[i+1]
+
+            nama_2 = str(input('Masukkan nama: '))
+            nomor_2 = int(input('Masukkan nomor KTP baru: '))
+
+            daftar [nama_2] = nomor_2
+
+            print(daftar)
+            print('Demikianlah data yang telah di ubah.')
+            print()
+        else:
+            print('Mohon masukkan sesuai dengan pilihan input.')
+            print()
+except:
+    print('Program error, anda harus memasukkan setiap input dengan benar.')
