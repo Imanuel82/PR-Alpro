@@ -1,0 +1,75 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+
+'''
+Referensi: www.pythonindo.com
+
+Toko Serba Ada baru saja di buat, namun pemiliknya belum memiliki program untuk mesin kasir miliknya.
+Karena itu bantulah pemilik Toko Serba Ada dengan membuatkan program mesin kasir yang dapat
+menjumlahkan keseluruhan harga yang harus dibayarkan oleh pembeli!
+
+input:
+1. Jumlah barang
+2. Nama barang
+3. Harga barang
+4. Pilihan ingin menambah atau tidak
+
+proses:
+1. Inputan jumlah barang akan digunakan untuk menentukan berapa kali nama barang dan harga barang perlu untuk dimasukkan
+2. Inputan untuk nama barang akan dimasukkan ke dalam set, sehingga tidak ada nama barang yang sama
+3. Inputan harga barang akan dimasukkan ke dalam list, nantinya seluruh angka tersebut akan dijumlahkan untuk mengetahui
+    berapakah total harga yang harus dibayarkan oleh pembeli.
+4. Inputan untuk penambahan barang akan menentukan apakah proses pembelian barang sudah selesai atau belum.
+
+output:
+1. Nama-nama barang akan ditampilkan
+2. Total harga akan ditampilkan
+3. Jika ingin menambah barang, user akan diminta untuk memasukkan jumlah barang, nama barang, dan juga harga barang
+    kemudian jika sudah ditambahkan, maka nama-nama barang sebelumnya akan dimunculkan beserta nama-nama barang yang baru,
+    dan total harga yang sebelumnya akan dijumlahkan dengan total harga yang ditambahkan.
+4. Jika tidak ingin menambah barang, maka program akan berhenti.
+'''
+try:
+    print('Selamat datang di Toko Serba Ada')
+    daftar_barang = set()
+    daftar_harga = []
+    jumlah = int(input('Masukkan jumlah barang: '))
+    for i in range(jumlah):
+        barang = str(input('Masukkan nama barang: '))
+        harga = int(input('Masukkan harga barang: '))
+        daftar_barang.add(barang)
+        daftar_harga.append(harga)
+    print()
+    count=1
+    for j in (daftar_barang):
+        print(count,'.',j)
+        count+=1
+    print('='*15,'+')
+    print('Total:',sum(daftar_harga))
+    print()
+    n=0
+    while n == 0:
+        lanjut = str(input('Apakah ingin menambahkan barang (Y/N)? '))
+        lanjut_1 = lanjut.upper()
+        print()
+        if lanjut_1 =='Y':
+            jumlah_1 = int(input('Masukkan jumlah barang: '))
+            for i in range(jumlah_1):
+                barang_1 = str(input('Masukkan nama barang: '))
+                harga_1 = int(input('Masukkan harga barang: '))
+                daftar_barang.add(barang_1)
+                daftar_harga.append(harga_1)
+            print()
+            count_1 = 1
+            for j in (daftar_barang):
+                print(count_1,'.',j)
+                count_1+=1
+            print('='*15,'+')
+            print('Total:',sum(daftar_harga))
+            print()
+        elif lanjut_1 == 'N':
+            print('Terima kasih telah berbelanja, silakan lakukan pembayaran dan ambil barang belanjaan anda.')
+            break
+        else:
+            print('Pilihan anda tidak tepat.')
+except:
+    print('Terjadi kesalahan dalam menginput.')
