@@ -1,0 +1,63 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+print()
+
+'''
+Referensi: www.stackoverflow.com
+
+Doni adalah siswa di suatu SMA, dia adalah siswa yang pandai, namun saat ini dia mengalami kesulitan
+dalam mengerjakan persoalan bilangan biner dan desimal.
+Oleh karena itu, bantulah Doni dengan membuatkan program yang dapat membantunya
+dalam mengerjakan persoalan bilangan biner dan desimal!
+
+input:
+1. Pilihan menu
+2. Angka biner
+3. Angka desimal
+
+proses:
+1. Jika menu yang di pilih adalah mengubah ke angka desimal maka program akan memproses untuk menampilkan inputan selanjutnya,
+    yaitu dalam bentuk angka biner. Dan dari inputan tersebut, angka yang sudah dimasukkan akan dihitung oleh fungsi rekursi yang ada.
+2. Jika menu yang di pilih adalah mengubah ke angka biner maka program akan memproses untuk menampilkan inputan selanjutnya,
+    yaitu dalam bentuk angka desimal. Dari inputan tersebut, angka yang sudah dimasukkan akan dihitung oleh fungsi rekursi yang telah dibuat.
+
+output:
+1. Akan ditampilkan menu-menu apa saja yang bisa dijadikan pilihan dalam program ini.
+2. Jika pilihan yang dipilih adalah mengubah angka biner ke desimal, maka akan ditampilkan hasil perhitungan dalam bentuk angka desimal.
+3. Jika pilihan yang dipilih adalah mengubah angka desimal ke biner, maka akan ditampilkan hasil perhitungan dalam bentuk angka biner.
+4. Jika pilihan tidak ada di dalam menu, maka akan ditampilkan keterangan bahwa pilihan yang dipilih salah.
+'''
+
+print('*'*5,'Selamat Datang di Program Pengubah Bilangan Biner dan Desimal','*'*5)
+print()
+
+n=0
+while n==0:
+    print('Pilihan menu:')
+    print('1. Biner ke Desimal')
+    print('2. Desimal ke Biner')
+    print('3. Exit')
+    pilih = int(input('Masukkan pilihan: '))
+    print()
+
+    if pilih==1:
+        angka = input('Masukkan angka biner: ')
+        def biner_ke_desimal(bstring):
+            if not bstring:
+                return 0
+            return biner_ke_desimal(bstring[:-1])*2+int(bstring[-1])
+        print(biner_ke_desimal(angka))
+        print()
+    elif pilih==2:
+        desimal=int(input('Masukkan angka desimal: '))
+        def ubah_ke_biner(n):
+            if n>1:
+                ubah_ke_biner(n//2)
+            print(n%2,end='')
+        ubah_ke_biner(desimal)
+        print()
+        print()
+    elif pilih==3:
+        print('Terima kasih telah menggunakan program ini.')
+        break
+    else:
+        print('Pilihan salah.')
