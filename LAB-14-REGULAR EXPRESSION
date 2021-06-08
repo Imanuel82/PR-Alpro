@@ -1,0 +1,71 @@
+print('Imanuel Vicky Sanjaya (71200563)')
+
+'''
+Referensi: codegrepper.com
+
+Atta Gledek ingin memperbesar usahanya dengan cara membuat membership berupa akun website.
+Website tersebut dia namakan dengan AHSIAP.com, untuk membuat membership ini pelanggannya hanya perlu mendaftarkan akun email
+dan juga mendaftarkan password untuk mengamankan akun email tersebut. Namun dia masih kebingungan dalam mencari orang yang dapat membuat program tersebut.
+Karena itu, bantulah Atta Gledek dengan membuatkan program seperti yang dia harapkan.
+
+input:
+1. akun email
+2. password
+
+proses:
+1. Inputan akun email akan diperiksa oleh program apakah sudah memenuhi ketentuan.
+2. Inputan password akan dicek oleh program apakah sudah sesuai dengan ketentuan atau belum.
+
+output:
+1. Jika email yang dimasukkan masih belum sesuai dengan ketentuan, maka akan ditampilkan inputan apakah user ingin melanjutkan
+    untuk mengisikan dengan alamat email yang benar atau tidak.
+    Jika user ingin melanjutkan maka akan ditampilkan kembali inputan untuk mengisikan alamat emailnya.
+2. Jika email yang dimasukkan sudah benar, maka akan ditampilkan inputan untuk memasukkan password.
+3. Jika password tidak sesuai ketentuan, maka akan diberikan keterangan bahwa password tersebut belum sesuai dengan ketentuannya
+    dan akan diminta untuk memasukkan password yang baru.
+4. Jika password sudah benar, maka akan ditampilkan keterangan bahwa password tersebut sudah kuat, dan program akan berhenti.
+'''
+
+import re
+print('Selamat datang di program pembuat akun website AHSIAP.com')
+print()
+x=0
+while x==0:
+    akun = str(input('Masukkan akun email anda: '))
+    akun_1 = re.findall('\w@ahsiap.com',akun)
+    print()
+    if akun_1:
+        n=0
+        while n == 0:
+            password = str(input('Masukkan password: '))
+            huruf_angka = re.findall('\w',password)
+            simbol = re.findall('\W',password)
+            spasi = re.findall('\s',password)
+            if len(spasi)==0 and len(simbol)>=1 and len(password)>=6 and len(password)<=20 and len(huruf_angka)>=1:
+                print('Password sudah kuat!')
+                print()
+                print('Terima kasih sudah mendaftarkan akun anda pada website kami.')
+                quit()
+            elif len(simbol)==0 or len(huruf_angka)>=1 and len(password)>=6 and len(password)<=20 and len(spasi)==0:
+                print('Password masih lemah, silakan masukkan password yang lebih kuat.')
+                print()
+            elif len(spasi)>0 and len(simbol)>=1 and len(password)>=6 and len(password)<=20 and len(huruf_angka)>=1:
+                print('Password invalid, silakan cek ketentuan untuk membuat password.')
+                print()
+            elif (len(password)<6 or len(password)>20) and len(spasi)==0 and len(simbol)>=1 and len(huruf_angka)>=1:
+                print('Password invalid, silakan cek ketentuan untukk membuat password.')
+                print()
+            else:
+                print('Password invalid, silakan cek ketentuan untukk membuat password.')
+                print()
+    else:
+        print('Format email anda salah, format email harus menggunakan @ahsiap.com.')
+        lanjut = str(input('Apakah anda ingin melakukan pendaftaran email kembali (Y/N)? '))
+        lanjut_1= lanjut.upper()
+        if lanjut_1=='Y':
+            continue
+        elif lanjut_1=='N':
+            break
+        else:
+            print('Pilihan tersebut tidak ada.')
+            break
